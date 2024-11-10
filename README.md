@@ -5,6 +5,7 @@
 - Sending Cookie in requests is mandatory for Storage APIs.
 
 ### Steps to run the server
+- Add your Amazon access credentials in the `application.properties` file.
 - `mvn clean install`
 - Run the jar file in target folder.
 - Use the postman collection to navigate, upload and download files.
