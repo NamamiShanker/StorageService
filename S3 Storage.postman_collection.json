@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "b059fb6c-94b0-4088-864e-7b51559109cb",
+		"name": "S3 Storage",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28029211"
+	},
+	"item": [
+		{
+			"name": "Create new users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Namami Shanker\",\n    \"username\": \"namami2011\",\n    \"password\": \"test123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user/createUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"createUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/user/loginUser?username=namami2011&password=test123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"loginUser"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "namami2011"
+						},
+						{
+							"key": "password",
+							"value": "test123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get logged in user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "session_id=6ce6cd60-ffe3-4dd3-bf5b-41eeac026fec",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/user/printUserDetails",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"printUserDetails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload File",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "session_id=6ce6cd60-ffe3-4dd3-bf5b-41eeac026fec",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/namamishanker/Documents/file.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/storage/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"storage",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Files",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "session_id=6ce6cd60-ffe3-4dd3-bf5b-41eeac026fec",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/storage/searchFiles?keyword=file",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"storage",
+						"searchFiles"
+					],
+					"query": [
+						{
+							"key": "keyword",
+							"value": "file"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Download File",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "session_id=6ce6cd60-ffe3-4dd3-bf5b-41eeac026fec",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/storage/downloadFile?fileName=file.csv",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"storage",
+						"downloadFile"
+					],
+					"query": [
+						{
+							"key": "fileName",
+							"value": "file.csv"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
